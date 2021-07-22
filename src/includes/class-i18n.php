@@ -5,7 +5,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       http://example.com
+ * @link       http://github.com/BrianHenryIE/bh-wc-filter-orders-domestic-international/
  * @since      1.0.0
  *
  * @package    BH_WC_Filter_Orders_Domestic_International

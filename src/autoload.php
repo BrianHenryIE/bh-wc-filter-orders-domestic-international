@@ -4,7 +4,7 @@
  *
  * Uses classmap, PSR4 & wp-namespace-autoloader.
  *
- * @link              http://example.com
+ * @link              http://github.com/BrianHenryIE/bh-wc-filter-orders-domestic-international/
  * @since             1.0.0
  * @package           BH_WC_Filter_Orders_Domestic_International
  *
@@ -15,6 +15,7 @@ namespace BH_WC_Filter_Orders_Domestic_International;
 
 use BH_WC_Filter_Orders_Domestic_International\Pablo_Pacheco\WP_Namespace_Autoloader\WP_Namespace_Autoloader;
 
+require_once __DIR__ . '/strauss/autoload.php';
 
 $class_map_file = __DIR__ . '/autoload-classmap.php';
 if ( file_exists( $class_map_file ) ) {
@@ -32,27 +33,7 @@ if ( file_exists( $class_map_file ) ) {
 		);
 	}
 }
-
-// The plugin-scoped namespace for composer required libraries, as specified in composer.json Mozart config.
-$dep_namespace = 'BH_WC_Filter_Orders_Domestic_International';
-// The Mozart config `dep_directory` adjusted for relative path.
-$dep_directory = '/vendor/';
-
-spl_autoload_register(
-	function ( $namespaced_class_name ) use ( $dep_namespace, $dep_directory ) {
-
-		$autoload_directory = __DIR__ . $dep_directory . '/';
-
-		// The class name with its true namespace.
-		$bare_namespaced_class_name = preg_replace( "#$dep_namespace\\\*#", '', $namespaced_class_name );
-
-		$file_path = $autoload_directory . str_replace( '\\', DIRECTORY_SEPARATOR, $bare_namespaced_class_name ) . '.php';
-
-		if ( file_exists( $file_path ) ) {
-			require_once $file_path;
-		}
-	}
-);
+unset( $class_map_file, $class_map );
 
 $wpcs_autoloader = new WP_Namespace_Autoloader();
 $wpcs_autoloader->init();

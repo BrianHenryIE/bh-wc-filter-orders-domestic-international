@@ -1,6 +1,6 @@
 === BH WC Filter Orders Domestic International ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
+Contributors: BrianHenryIE
+Donate link: http://github.com/BrianHenryIE/bh-wc-filter-orders-domestic-international//
 Tags: comments, spam
 Requires at least: 3.0.1
 Tested up to: 3.4

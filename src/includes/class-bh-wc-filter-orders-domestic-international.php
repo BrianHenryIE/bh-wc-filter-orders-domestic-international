@@ -5,7 +5,7 @@
  * A class definition that includes attributes and functions used across both the
  * frontend-facing side of the site and the admin area.
  *
- * @link       http://example.com
+ * @link       http://github.com/BrianHenryIE/bh-wc-filter-orders-domestic-international/
  * @since      1.0.0
  *
  * @package    BH_WC_Filter_Orders_Domestic_International
@@ -14,10 +14,7 @@
 
 namespace BH_WC_Filter_Orders_Domestic_International\includes;
 
-use BH_WC_Filter_Orders_Domestic_International\admin\Admin;
-use BH_WC_Filter_Orders_Domestic_International\frontend\Frontend;
-use BH_WC_Filter_Orders_Domestic_International\BrianHenryIE\WPPB\WPPB_Loader_Interface;
-use BH_WC_Filter_Orders_Domestic_International\BrianHenryIE\WPPB\WPPB_Plugin_Abstract;
+use BH_WC_Filter_Orders_Domestic_International\woocommerce\Orders_List_Page;
 
 /**
  * The core plugin class.
@@ -33,32 +30,18 @@ use BH_WC_Filter_Orders_Domestic_International\BrianHenryIE\WPPB\WPPB_Plugin_Abs
  * @subpackage BH_WC_Filter_Orders_Domestic_International/includes
  * @author     BrianHenryIE <BrianHenryIE@gmail.com>
  */
-class BH_WC_Filter_Orders_Domestic_International extends WPPB_Plugin_Abstract {
+class BH_WC_Filter_Orders_Domestic_International {
 
 	/**
 	 * Define the core functionality of the plugin.
 	 *
-	 * Set the plugin name and the plugin version that can be used throughout the plugin.
-	 * Load the dependencies, define the locale, and set the hooks for the admin area and
-	 * the frontend-facing side of the site.
-	 *
 	 * @since    1.0.0
-	 *
-	 * @param WPPB_Loader_Interface $loader The WPPB class which adds the hooks and filters to WordPress.
 	 */
-	public function __construct( $loader ) {
-		if ( defined( 'BH_WC_FILTER_ORDERS_DOMESTIC_INTERNATIONAL_VERSION' ) ) {
-			$version = BH_WC_FILTER_ORDERS_DOMESTIC_INTERNATIONAL_VERSION;
-		} else {
-			$version = '1.0.0';
-		}
-		$plugin_name = 'bh-wc-filter-orders-domestic-international';
-
-		parent::__construct( $loader, $plugin_name, $version );
+	public function __construct() {
 
 		$this->set_locale();
-		$this->define_admin_hooks();
-		$this->define_frontend_hooks();
+
+		$this->define_woocommerce_hooks();
 
 	}
 
@@ -75,23 +58,7 @@ class BH_WC_Filter_Orders_Domestic_International extends WPPB_Plugin_Abstract {
 
 		$plugin_i18n = new I18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
-	}
-
-	/**
-	 * Register all of the hooks related to the admin area functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	protected function define_admin_hooks() {
-
-		$plugin_admin = new Admin( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		add_action( 'plugins_loaded', array( $plugin_i18n, 'load_plugin_textdomain' ) );
 
 	}
 
@@ -102,12 +69,13 @@ class BH_WC_Filter_Orders_Domestic_International extends WPPB_Plugin_Abstract {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	protected function define_frontend_hooks() {
+	protected function define_woocommerce_hooks() {
 
-		$plugin_frontend = new Frontend( $this->get_plugin_name(), $this->get_version() );
+		$woocommerce_orders = new Orders_List_Page();
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_frontend, 'enqueue_scripts' );
+		// add bulk order filter for exported / non-exported orders
+		add_action( 'restrict_manage_posts', array( $woocommerce_orders, 'filter_orders_by_shipping_destination_ui' ), 20 );
+		add_filter( 'request', array( $woocommerce_orders, 'filter_orders_by_shipping_destination_query' ), 10, 1 );
 
 	}
 
