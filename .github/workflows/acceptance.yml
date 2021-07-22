@@ -48,7 +48,6 @@ jobs:
           env-file: .env.github
 
       - name: Set env database host w/port
-        // echo "action_state=yellow" >> $GITHUB_ENV
         run: |
           echo "127.0.0.1:${{ job.services.mysql.ports['3306'] }}"
           echo "TEST_SITE_DB_HOST=127.0.0.1:${{ job.services.mysql.ports['3306'] }}" >> $GITHUB_ENV
