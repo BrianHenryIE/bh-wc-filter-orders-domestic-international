@@ -11,7 +11,7 @@ namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes;
 /**
  * Class I18n_Test
  *
- * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\I18n
+ * @coversDefaultClass  \BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\I18n
  */
 class I18n_WP_Unit_Test extends \Codeception\TestCase\WPTestCase {
 
@@ -21,7 +21,7 @@ class I18n_WP_Unit_Test extends \Codeception\TestCase\WPTestCase {
 	 * When load_plugin_textdomain() is called, it then runs the `plugin_locale` filter, which we hook onto to verify
 	 * things were called properly.
 	 *
-	 * @see load_plugin_textdomain()
+	 * @covers ::load_plugin_textdomain
 	 */
 	public function test_load_plugin_textdomain_function() {
 

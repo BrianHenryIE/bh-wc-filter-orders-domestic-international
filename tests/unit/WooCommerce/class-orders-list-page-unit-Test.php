@@ -11,6 +11,10 @@ namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce;
 
 use DOMNodeList;
 
+/**
+ * Class Orders_List_Page_Unit_Test
+ * @coversDefaultClass \BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page
+ */
 class Orders_List_Page_Unit_Test extends \Codeception\Test\Unit {
 
 	protected function _before() {
@@ -26,7 +30,7 @@ class Orders_List_Page_Unit_Test extends \Codeception\Test\Unit {
 	/**
 	 * Test the UI prints a HTML select with the three options.
 	 *
-	 * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page::filter_orders_by_shipping_destination_ui
+	 * @covers ::print_filter_orders_by_shipping_destination_ui
 	 */
 	public function test_add_ui() {
 
@@ -38,7 +42,7 @@ class Orders_List_Page_Unit_Test extends \Codeception\Test\Unit {
 
 		ob_start();
 
-		$sut->filter_orders_by_shipping_destination_ui();
+		$sut->print_filter_orders_by_shipping_destination_ui();
 
 		$ui = ob_get_clean();
 
@@ -69,7 +73,7 @@ class Orders_List_Page_Unit_Test extends \Codeception\Test\Unit {
 	}
 
 	/**
-	 * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page::filter_orders_by_shipping_destination_query
+	 * @covers ::filter_orders_by_shipping_destination_query
 	 */
 	public function test_dont_add_query_args() {
 

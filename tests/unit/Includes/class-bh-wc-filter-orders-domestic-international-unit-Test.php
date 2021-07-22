@@ -10,11 +10,12 @@ namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes;
 
 
 use BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page;
+use WP_Mock\Matcher\AnyInstance;
 
 /**
  * Class Plugin_WP_Mock_Test
  *
- * @covers BH_WC_Filter_Orders_Domestic_International
+ * @coversDefaultClass \BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\BH_WC_Filter_Orders_Domestic_International
  */
 class BH_WC_Filter_Orders_Domestic_International_Unit_Test extends \Codeception\Test\Unit {
 
@@ -29,18 +30,27 @@ class BH_WC_Filter_Orders_Domestic_International_Unit_Test extends \Codeception\
 	}
 
 	/**
-	 *
+	 * @covers ::set_locale
 	 */
-	public function test_hooks_and_action() {
+	public function test_i18n_hooks()
+    {
 
-		$this->markTestSkipped( 'How do we test for class-type, since we dont have a handle on the instance?' );
+        // I18n
+        \WP_Mock::expectActionAdded('plugins_loaded', array(new AnyInstance(I18n::class), 'load_plugin_textdomain'));
 
-		// I18n
-		\WP_Mock::expectActionAdded( 'plugins_loaded', array( I18n::class, 'load_plugin_textdomain' ) );
+        // Actions and filters are added immediately on construction.
+        new BH_WC_Filter_Orders_Domestic_International();
 
-		// Order page.
-		\WP_Mock::expectActionAdded( 'restrict_manage_posts', array( Orders_List_Page::class, 'filter_orders_by_shipping_destination_ui' ), 20 );
-		\WP_Mock::expectFilterAdded('request', array( Orders_List_Page::class, 'filter_orders_by_shipping_destination_query' ) );
+    }
+
+    /**
+     * @covers ::define_woocommerce_hooks
+     */
+    public function test_woocommerce_hooks()
+    {
+        // Order page.
+		\WP_Mock::expectActionAdded( 'restrict_manage_posts', array( new AnyInstance( Orders_List_Page::class ), 'print_filter_orders_by_shipping_destination_ui'), 20 );
+		\WP_Mock::expectFilterAdded('request', array( new AnyInstance( Orders_List_Page::class), 'filter_orders_by_shipping_destination_query' ) );
 
 		// Actions and filters are added immediately on construction.
 		new BH_WC_Filter_Orders_Domestic_International();

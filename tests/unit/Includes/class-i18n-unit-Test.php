@@ -13,7 +13,7 @@ namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes;
  * Class I18n_Unit_Test
  * @see I18n
  *
- * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\I18n
+ * @coversDefaultClass  \BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\I18n
  */
 class Plugin_Unit_Test extends \Codeception\Test\Unit {
 
@@ -31,6 +31,7 @@ class Plugin_Unit_Test extends \Codeception\Test\Unit {
 	 * Check load_plugin_textdomain is called with the correct parameters.
 	 *
 	 * @see load_plugin_textdomain()
+     * @covers ::load_plugin_textdomain
 	 */
 	public function test_i18n_register() {
 

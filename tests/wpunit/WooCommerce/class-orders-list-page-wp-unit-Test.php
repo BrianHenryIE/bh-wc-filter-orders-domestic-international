@@ -6,7 +6,7 @@ namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce;
  * Class Order_List_Page_WP_Unit_Test
  * @package BH_WC_Filter_Orders_Domestic_International\woocommerce
  *
- * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page
+ * @coversDefaultClass  \BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page
  */
 class Order_List_Page_WP_Unit_Test extends \Codeception\TestCase\WPTestCase {
 
@@ -15,6 +15,8 @@ class Order_List_Page_WP_Unit_Test extends \Codeception\TestCase\WPTestCase {
 	 * Test needs to be here because it will use `WC()->countries->get_base_country();`.
 	 *
 	 * Check domestic filter adds the query arguments but does not set the compare argument.
+     *
+     * @covers ::filter_orders_by_shipping_destination_query
 	 */
 	public function test_add_domestic_query_args() {
 
