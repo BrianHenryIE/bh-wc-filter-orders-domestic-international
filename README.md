@@ -1,12 +1,23 @@
 [![WordPress tested 5.5](https://img.shields.io/badge/WordPress-v5.5%20tested-0073aa.svg)](https://wordpress.org/plugins/plugin_slug) [![PHPCS WPCS](https://img.shields.io/badge/PHPCS-WordPress%20Coding%20Standards-8892BF.svg)](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards) [![PHPUnit ](.github/coverage.svg)](https://brianhenryie.github.io/bh-wc-filter-orders-domestic-international/)
 
-# BH WC Filter Orders Domestic/International
+# Filter Orders Domestic/International
+
+WooCommerce plugin for filtering orders.
+
+Adds a filter at the top of the orders list page:
+
+![Orders list page](./assets/screenshot-1.png "Adds a filter at the top of the orders list page")
+
+Allows filtering to domestic orders only or international orders only:
+
+![Orders list page zoomed on filter](./assets/screenshot-2.png "Allows filtering to domestic orders only or international orders only")
+
 
 Based almost entirely on SkyVerge/bekarice's [filter-wc-orders-by-gateway.php](https://gist.github.com/bekarice/41bce677437cb8f312ed77e9f226a812).
-
 https://www.skyverge.com/blog/filtering-woocommerce-orders/
 
 Maybe use this: https://developer.wordpress.org/reference/classes/wp_meta_query/
+
 
 ## Contributing
 
