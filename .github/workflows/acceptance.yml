@@ -52,7 +52,7 @@ jobs:
           echo "127.0.0.1:${{ job.services.mysql.ports['3306'] }}"
           echo "TEST_SITE_DB_HOST=127.0.0.1:${{ job.services.mysql.ports['3306'] }}" >> $GITHUB_ENV
           echo $TEST_SITE_DB_HOST
-          echo "${{ env.$TEST_SITE_DB_HOST }}"
+          echo "${{ env.TEST_SITE_DB_HOST }}"
 
       - name: Configure MySQL
         run: |
