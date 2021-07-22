@@ -48,7 +48,11 @@ jobs:
           env-file: .env.github
 
       - name: Set env database host w/port
-        run: echo "TEST_SITE_DB_HOST=127.0.0.1:${{ job.services.mysql.ports['3306'] }}" >> $GITHUB_ENV
+        // echo "action_state=yellow" >> $GITHUB_ENV
+        run: |
+          echo "127.0.0.1:${{ job.services.mysql.ports['3306'] }}"
+          echo "TEST_SITE_DB_HOST=127.0.0.1:${{ job.services.mysql.ports['3306'] }}" >> $GITHUB_ENV
+          echo $TEST_SITE_DB_HOST
 
       - name: Configure MySQL
         run: |
@@ -59,8 +63,8 @@ jobs:
           mysql -h 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -u root -ppassword $TEST_SITE_DB_NAME < tests/_data/dump.sql
 #          mysql -h 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -u $TEST_DB_USER -ppassword $TEST_DB_PASSWORD -e "$TEST_SITE_DB_NAME" < tests/_data/dump.sql
 
-      - name: Create Composer auth.json
-        run: php -r "file_put_contents( 'auth.json', json_encode( [ 'http-basic' => [ 'blog.brianhenry.ie' => [ 'username' => '"${{ secrets.COMPOSER_AUTH_SECRET }}"', 'password' => 'satispress' ] ] ] ) );"
+#      - name: Create Composer auth.json from GitHub secrets
+#        run: php -r "file_put_contents( 'auth.json', json_encode( [ 'http-basic' => [ 'blog.brianhenry.ie' => [ 'username' => '"${{ secrets.COMPOSER_AUTH_SECRET }}"', 'password' => 'satispress' ] ] ] ) );"
 
       - name: Run composer install
         uses: php-actions/composer@v6
