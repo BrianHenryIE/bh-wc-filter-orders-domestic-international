@@ -11,12 +11,15 @@ namespace BH_WC_Filter_Orders_Domestic_International\includes;
 /**
  * Class I18n_Test
  *
- * @see I18n
+ * @covers \BH_WC_Filter_Orders_Domestic_International\includes\I18n
  */
 class I18n_WP_Unit_Test extends \Codeception\TestCase\WPTestCase {
 
 	/**
 	 * Checks if the filter run by WordPress in the load_plugin_textdomain() function is called.
+	 *
+	 * When load_plugin_textdomain() is called, it then runs the `plugin_locale` filter, which we hook onto to verify
+	 * things were called properly.
 	 *
 	 * @see load_plugin_textdomain()
 	 */

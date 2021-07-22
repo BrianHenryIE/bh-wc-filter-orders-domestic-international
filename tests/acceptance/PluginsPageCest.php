@@ -21,7 +21,7 @@ class PluginsPageCest
 	 */
 	public function testPluginsPageForName( AcceptanceTester $I ) {
 
-		$I->canSee( 'BH WC Filter Orders Domestic International' );
+		$I->canSee( 'Filter Orders by Domestic/International' );
 	}
 
 	/**

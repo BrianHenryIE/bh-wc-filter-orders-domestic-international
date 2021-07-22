@@ -1,6 +1,6 @@
 {
     "name": "brianhenryie/bh-wc-filter-orders-domestic-international",
-    "description": "This is a short description of what plugin_title does.",
+    "description": "Allows filtering WooCommerce orders by domestic/international shipping destination",
     "type": "wordpress-plugin",
     "license": "GPL-2.0+-or-later",
     "authors": [

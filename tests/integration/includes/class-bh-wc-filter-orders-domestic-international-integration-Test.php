@@ -10,72 +10,40 @@ namespace BH_WC_Filter_Orders_Domestic_International\includes;
 
 use BH_WC_Filter_Orders_Domestic_International\admin\Admin;
 use BH_WC_Filter_Orders_Domestic_International\frontend\Frontend;
+use BH_WC_Filter_Orders_Domestic_International\woocommerce\Orders_List_Page;
 
 /**
  * Class Develop_Test
  */
 class BH_WC_Filter_Orders_Domestic_International_Integration_Test extends \Codeception\TestCase\WPTestCase {
 
-	/**
-	 * Verify admin_enqueue_scripts action is correctly added for styles, at priority 10.
-	 */
-	public function test_action_admin_enqueue_scripts_styles() {
 
-		$action_name       = 'admin_enqueue_scripts';
-		$expected_priority = 10;
-		$class_type        = Admin::class;
-		$method_name       = 'enqueue_styles';
 
-		$function_is_hooked = $this->is_function_hooked_on_action( $class_type, $method_name, $action_name, $expected_priority );
+	public function test_action_restrict_manage_posts_filter_orders_by_shipping_destination_ui() {
 
-		$this->assertNotFalse( $function_is_hooked );
-	}
-
-	/**
-	 * Verify admin_enqueue_scripts action is added for scripts, at priority 10.
-	 */
-	public function test_action_admin_enqueue_scripts_scripts() {
-
-		$action_name       = 'admin_enqueue_scripts';
-		$expected_priority = 10;
-		$class_type        = Admin::class;
-		$method_name       = 'enqueue_scripts';
+		$action_name       = 'restrict_manage_posts';
+		$expected_priority = 20;
+		$class_type        = Orders_List_Page::class;
+		$method_name       = 'filter_orders_by_shipping_destination_ui';
 
 		$function_is_hooked = $this->is_function_hooked_on_action( $class_type, $method_name, $action_name, $expected_priority );
 
 		$this->assertNotFalse( $function_is_hooked );
+
 	}
 
-	/**
-	 * Verify enqueue_scripts action is correctly added for styles, at priority 10, on class Frontend
-	 */
-	public function test_action_enqueue_scripts_styles() {
+	public function test_action_request_filter_orders_by_shipping_destination_query() {
 
-		$action_name       = 'wp_enqueue_scripts';
+		$action_name       = 'request';
 		$expected_priority = 10;
-		$class_type        = Frontend::class;
-		$method_name       = 'enqueue_styles';
+		$class_type        = Orders_List_Page::class;
+		$method_name       = 'filter_orders_by_shipping_destination_query';
 
 		$function_is_hooked = $this->is_function_hooked_on_action( $class_type, $method_name, $action_name, $expected_priority );
 
 		$this->assertNotFalse( $function_is_hooked );
+
 	}
-
-	/**
-	 * Verify enqueue_scripts action is added for scripts, at priority 10, on class Frontend.
-	 */
-	public function test_action_enqueue_scripts_scripts() {
-
-		$action_name       = 'wp_enqueue_scripts';
-		$expected_priority = 10;
-		$class_type        = Frontend::class;
-		$method_name       = 'enqueue_scripts';
-
-		$function_is_hooked = $this->is_function_hooked_on_action( $class_type, $method_name, $action_name, $expected_priority );
-
-		$this->assertNotFalse( $function_is_hooked );
-	}
-
 
 	/**
 	 * Verify action to call load textdomain is added.
