@@ -6,12 +6,12 @@
  * @author  BrianHenryIE <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International\includes;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes;
 
 /**
  * Class I18n_Test
  *
- * @covers \BH_WC_Filter_Orders_Domestic_International\includes\I18n
+ * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\I18n
  */
 class I18n_WP_Unit_Test extends \Codeception\TestCase\WPTestCase {
 

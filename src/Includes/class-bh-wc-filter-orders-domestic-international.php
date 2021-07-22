@@ -12,9 +12,9 @@
  * @subpackage BH_WC_Filter_Orders_Domestic_International/includes
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International\includes;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes;
 
-use BH_WC_Filter_Orders_Domestic_International\woocommerce\Orders_List_Page;
+use BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page;
 
 /**
  * The core plugin class.

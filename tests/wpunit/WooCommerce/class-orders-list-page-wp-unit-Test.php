@@ -1,12 +1,12 @@
 <?php
 
-namespace BH_WC_Filter_Orders_Domestic_International\woocommerce;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce;
 
 /**
  * Class Order_List_Page_WP_Unit_Test
  * @package BH_WC_Filter_Orders_Domestic_International\woocommerce
  *
- * @covers \BH_WC_Filter_Orders_Domestic_International\woocommerce\Orders_List_Page
+ * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page
  */
 class Order_List_Page_WP_Unit_Test extends \Codeception\TestCase\WPTestCase {
 

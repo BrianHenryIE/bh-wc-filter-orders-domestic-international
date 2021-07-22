@@ -26,9 +26,9 @@
  * @see https://gist.github.com/bekarice/41bce677437cb8f312ed77e9f226a812
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International;
 
-use BH_WC_Filter_Orders_Domestic_International\includes\BH_WC_Filter_Orders_Domestic_International;
+use BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\BH_WC_Filter_Orders_Domestic_International;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

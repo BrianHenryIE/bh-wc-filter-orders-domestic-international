@@ -6,7 +6,7 @@
  * @author  BrianHenryIE <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International\woocommerce;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce;
 
 
 use DOMNodeList;
@@ -26,7 +26,7 @@ class Orders_List_Page_Unit_Test extends \Codeception\Test\Unit {
 	/**
 	 * Test the UI prints a HTML select with the three options.
 	 *
-	 * @covers \BH_WC_Filter_Orders_Domestic_International\woocommerce\Orders_List_Page::filter_orders_by_shipping_destination_ui
+	 * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page::filter_orders_by_shipping_destination_ui
 	 */
 	public function test_add_ui() {
 
@@ -69,7 +69,7 @@ class Orders_List_Page_Unit_Test extends \Codeception\Test\Unit {
 	}
 
 	/**
-	 * @covers \BH_WC_Filter_Orders_Domestic_International\woocommerce\Orders_List_Page::filter_orders_by_shipping_destination_query
+	 * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page::filter_orders_by_shipping_destination_query
 	 */
 	public function test_dont_add_query_args() {
 

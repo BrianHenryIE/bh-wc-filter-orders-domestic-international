@@ -6,14 +6,14 @@
  * @author  BrianHenryIE <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International\includes;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes;
 
-use BH_WC_Filter_Orders_Domestic_International\woocommerce\Orders_List_Page;
+use BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce\Orders_List_Page;
 
 /**
  * Class I18n_Test
  *
- * @covers \BH_WC_Filter_Orders_Domestic_International\includes\BH_WC_Filter_Orders_Domestic_International
+ * @covers \BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\BH_WC_Filter_Orders_Domestic_International
  */
 class BH_WC_Filter_Orders_Domestic_International_WP_Unit_Test extends \Codeception\TestCase\WPTestCase {
 

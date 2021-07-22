@@ -6,9 +6,9 @@
  * @author  BrianHenryIE <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International;
 
-use BH_WC_Filter_Orders_Domestic_International\includes\BH_WC_Filter_Orders_Domestic_International;
+use BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes\BH_WC_Filter_Orders_Domestic_International;
 
 /**
  * Class Plugin_WP_Mock_Test

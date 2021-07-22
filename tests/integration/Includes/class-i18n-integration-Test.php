@@ -6,7 +6,7 @@
  * @author  BrianHenryIE <BrianHenryIE@gmail.com>
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International\includes;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\includes;
 
 /**
  * Class BH_WC_Filter_Orders_Domestic_International_Test

@@ -11,9 +11,9 @@
  * @see https://github.com/pablo-sg-pacheco/wp-namespace-autoloader/
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International;
 
-use BH_WC_Filter_Orders_Domestic_International\Pablo_Pacheco\WP_Namespace_Autoloader\WP_Namespace_Autoloader;
+use BrianHenryIE\WC_Filter_Orders_Domestic_International\Pablo_Pacheco\WP_Namespace_Autoloader\WP_Namespace_Autoloader;
 
 require_once __DIR__ . '/strauss/autoload.php';
 

@@ -9,7 +9,7 @@
  * @subpackage BH_WC_Filter_Orders_Domestic_International/admin
  */
 
-namespace BH_WC_Filter_Orders_Domestic_International\woocommerce;
+namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\WooCommerce;
 
 /**
  * The admin-specific functionality of the plugin.

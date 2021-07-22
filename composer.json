@@ -79,7 +79,8 @@
             }
         },
         "strauss": {
-            "namespace_prefix": "BH_WC_Filter_Orders_Domestic_International\\",
+            "namespace_prefix": "BrianHenryIE\\WC_Filter_Orders_Domestic_International\\",
+            "classmap_prefix": "BH_WC_Filter_Orders_Domestic_International_",
             "target_directory": "/src/strauss/",
             "override_autoload": {
                 "yahnis-elsts/plugin-update-checker": {
