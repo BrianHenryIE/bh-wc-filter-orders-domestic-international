@@ -30,7 +30,7 @@ class Orders_List_Page {
 	 *
 	 * @since 1.0.0
 	 */
-	public function filter_orders_by_shipping_destination_ui() {
+	public function print_filter_orders_by_shipping_destination_ui(): void {
 		global $typenow;
 
 		if ( 'shop_order' === $typenow ) {
@@ -69,7 +69,7 @@ class Orders_List_Page {
 	 * @param array $vars query vars without filtering
 	 * @return array $vars query vars with (maybe) filtering
 	 */
-	public function filter_orders_by_shipping_destination_query( $vars ) {
+	public function filter_orders_by_shipping_destination_query( $vars ): array {
 		global $typenow;
 
 		if ( 'shop_order' === $typenow && isset( $_GET['_shop_order_shipping_destination'] ) && ! empty( $_GET['_shop_order_shipping_destination'] ) ) {

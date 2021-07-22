@@ -54,7 +54,7 @@ class BH_WC_Filter_Orders_Domestic_International {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	protected function set_locale() {
+	protected function set_locale(): void {
 
 		$plugin_i18n = new I18n();
 
@@ -69,12 +69,12 @@ class BH_WC_Filter_Orders_Domestic_International {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	protected function define_woocommerce_hooks() {
+	protected function define_woocommerce_hooks(): void {
 
 		$woocommerce_orders = new Orders_List_Page();
 
-		// add bulk order filter for exported / non-exported orders
-		add_action( 'restrict_manage_posts', array( $woocommerce_orders, 'filter_orders_by_shipping_destination_ui' ), 20 );
+		// add bulk order filter for exported / non-exported orders.
+		add_action( 'restrict_manage_posts', array( $woocommerce_orders, 'print_filter_orders_by_shipping_destination_ui' ), 20 );
 		add_filter( 'request', array( $woocommerce_orders, 'filter_orders_by_shipping_destination_query' ), 10, 1 );
 
 	}

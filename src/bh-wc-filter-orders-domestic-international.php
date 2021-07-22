@@ -50,7 +50,7 @@ define( 'BH_WC_FILTER_ORDERS_DOMESTIC_INTERNATIONAL_VERSION', '1.0.1' );
  *
  * @since    1.0.0
  */
-function instantiate_bh_wc_filter_orders_domestic_international() {
+function instantiate_bh_wc_filter_orders_domestic_international(): void {
 
 	if ( ! is_admin() ) {
 		return;

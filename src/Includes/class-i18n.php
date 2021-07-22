@@ -27,7 +27,6 @@ namespace BrianHenryIE\WC_Filter_Orders_Domestic_International\Includes;
  */
 class I18n {
 
-
 	/**
 	 * Load the plugin text domain for translation.
 	 *
@@ -35,7 +34,7 @@ class I18n {
 	 *
 	 * @since    1.0.0
 	 */
-	public function load_plugin_textdomain() {
+	public function load_plugin_textdomain(): void {
 
 		load_plugin_textdomain(
 			'bh-wc-filter-orders-domestic-international',
@@ -44,7 +43,5 @@ class I18n {
 		);
 
 	}
-
-
 
 }
