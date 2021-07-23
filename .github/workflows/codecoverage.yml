@@ -61,13 +61,13 @@ jobs:
         with:
           env-file: .env.testing
 
-      - name: Read .env.github
-        uses: c-py/action-dotenv-to-setenv@v2
-        with:
-          env-file: .env.github
-
-      - name: Set env database host w/port
-        run: echo "TEST_SITE_DB_HOST=127.0.0.1:${{ job.services.mysql.ports['3306'] }}" >> $GITHUB_ENV
+#      - name: Read .env.github
+#        uses: c-py/action-dotenv-to-setenv@v2
+#        with:
+#          env-file: .env.github
+#
+#      - name: Set env database host w/port
+#        run: echo "TEST_SITE_DB_HOST=127.0.0.1:${{ job.services.mysql.ports['3306'] }}" >> $GITHUB_ENV
 
       - name: Configure MySQL
         run: |
