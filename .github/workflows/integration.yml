@@ -38,6 +38,15 @@ jobs:
           tools: composer, cs2pr
           extensions: zip
 
+      - name: Update configs for GA
+        run: |
+          find . -depth \( -name '.env.testing' \) -exec sed -i "s/=\"127.0.0.1\"/=\"127.0.0.1:${{ job.services.mysql.ports['3306'] }}\"/g" {} +
+          find . -depth \( -name 'composer.json' \) -exec sed -i "s/127.0.0.1/127.0.0.1:${{ job.services.mysql.ports['3306'] }}/g" {} +
+          find . -depth \( -name '.env.testing' -o -name '*.cest' \) -exec sed -i "s/localhost:8080\/$PLUGIN_SLUG/localhost:8080/g" {} +
+          find . -depth \( -name 'dump.sql' \) -exec sed -i "s/localhost:8080\/$PLUGIN_SLUG/localhost:8080/g" {} +
+        env:
+          PLUGIN_SLUG: bh-wc-filter-orders-domestic-international
+
       - name: Read .env.testing
         uses: c-py/action-dotenv-to-setenv@v2
         with:
@@ -47,11 +56,6 @@ jobs:
         uses: c-py/action-dotenv-to-setenv@v2
         with:
           env-file: .env.github
-
-      - name: Read .env.testing
-        uses: c-py/action-dotenv-to-setenv@v2
-        with:
-          env-file: .env.testing
 
       - name: Set env database host w/port
         run: echo "TEST_SITE_DB_HOST=127.0.0.1:${{ job.services.mysql.ports['3306'] }}" >> $GITHUB_ENV
